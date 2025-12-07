@@ -12,7 +12,11 @@ let apolloServer: ApolloServer | null = null;
 let expressApp: express.Application | null = null;
 
 async function getApolloServer(): Promise<{ server: ApolloServer; app: express.Application }> {
-  if (!apolloServer || !expressApp) {
+  if (apolloServer && expressApp) {
+    return { server: apolloServer, app: expressApp };
+  }
+
+  try {
     // Load schema and resolvers
     const typeDefs = await loadSchema();
     const resolvers = createResolvers();
@@ -51,22 +55,34 @@ async function getApolloServer(): Promise<{ server: ApolloServer; app: express.A
       path: '/api/graphql',
       cors: false, // CORS is handled by express middleware
     } as any);
+
+    return { server: apolloServer, app: expressApp };
+  } catch (error) {
+    console.error('🔴 [VERCEL_GRAPHQL] Failed to initialize serverless GraphQL handler:', error);
+    throw error;
   }
-  
-  return { server: apolloServer, app: expressApp };
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const { app } = await getApolloServer();
-  
-  // Convert Vercel request/response to Express-compatible format
-  return new Promise((resolve, reject) => {
-    app(req as any, res as any, (err: any) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(undefined);
-      }
+  try {
+    const { app } = await getApolloServer();
+    
+    // Convert Vercel request/response to Express-compatible format
+    return new Promise((resolve, reject) => {
+      app(req as any, res as any, (err: any) => {
+        if (err) {
+          console.error('🔴 [VERCEL_GRAPHQL] Express handler error:', err);
+          reject(err);
+        } else {
+          resolve(undefined);
+        }
+      });
     });
-  });
+  } catch (error: any) {
+    console.error('🔴 [VERCEL_GRAPHQL] Handler failed:', error);
+    res.status(500).json({
+      error: 'GraphQL handler initialization failed',
+      message: error?.message || 'Unknown error',
+    });
+  }
 }
