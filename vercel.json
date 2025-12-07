@@ -10,6 +10,11 @@
       "use": "@vercel/static"
     }
   ],
+  "functions": {
+    "backend/api/graphql.ts": {
+      "includeFiles": "backend/src/schema/**/*.graphql"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/graphql",
