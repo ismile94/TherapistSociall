@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/foundation.dart';
 
 class AppConfig {
@@ -13,49 +12,24 @@ class AppConfig {
   
   // GraphQL Endpoint - Platform aware
   static String get graphqlEndpoint {
-    // Production environment variable'dan al (build time)
+    // Build-time override: BACKEND_URL=https://your-deployment.vercel.app/api
     const backendUrl = String.fromEnvironment('BACKEND_URL');
     if (backendUrl.isNotEmpty) {
       debugPrint('🔵 [APP_CONFIG] Using BACKEND_URL from environment: $backendUrl');
       return '$backendUrl/graphql';
     }
-    
-    // Production mode check - kReleaseMode Flutter'ın release build flag'i
-    const bool isProduction = bool.fromEnvironment('dart.vm.product', defaultValue: false);
-    const bool isReleaseMode = kReleaseMode;
-    
-    debugPrint('🔵 [APP_CONFIG] isProduction: $isProduction, isReleaseMode: $isReleaseMode, kIsWeb: $kIsWeb');
-    
-    // Web için Vercel URL'ini kullan (runtime'da dinamik)
+
+    // Web için runtime origin (Vercel domain)
     if (kIsWeb) {
-      // Browser'da window.location'dan al
-      // Uri.base.origin mevcut origin'i verir (https://your-app.vercel.app)
-      final origin = Uri.base.origin;
+      final origin = Uri.base.origin; // e.g. https://therapistsocial.vercel.app
       final endpoint = '$origin/api/graphql';
       debugPrint('🔵 [APP_CONFIG] Web platform - using origin: $endpoint');
-      // GraphQL endpoint'i /api/graphql veya /graphql olabilir
       return endpoint;
     }
-    
-    // Production build'de (release mode) Vercel URL'ini kullan
-    if (isReleaseMode || isProduction) {
-      const endpoint = '$vercelBackendUrl/api/graphql';
-      debugPrint('🔵 [APP_CONFIG] Production mode - using Vercel URL: $endpoint');
-      return endpoint;
-    }
-    
-    // Development mode - local backend kullan
-    if (Platform.isAndroid) {
-      // Emulator için 10.0.2.2, fiziksel cihaz için local IP
-      // Emulator kontrolü için Flutter'ın kendi mekanizmasını kullanabiliriz
-      // Şimdilik fiziksel cihaz için local IP kullanıyoruz
-      const endpoint = 'http://192.168.1.219:4000/graphql';
-      debugPrint('🔵 [APP_CONFIG] Android development - using local IP: $endpoint');
-      return endpoint;
-    }
-    // iOS simulator veya desktop için localhost
-    const endpoint = 'http://localhost:4000/graphql';
-    debugPrint('🔵 [APP_CONFIG] iOS/Desktop development - using localhost: $endpoint');
+
+    // Tüm diğer platformlar: Vercel prod endpoint
+    const endpoint = '$vercelBackendUrl/api/graphql';
+    debugPrint('🔵 [APP_CONFIG] Using Vercel backend for all platforms: $endpoint');
     return endpoint;
   }
 
