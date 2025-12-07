@@ -1,0 +1,18 @@
+extend type Mutation {
+  requestUploadUrl(
+    filename: String!
+    contentType: String!
+    fileSize: Int!
+  ): UploadUrlPayload!
+  confirmUpload(
+    fileUrl: String!
+    metadata: JSON
+  ): Boolean!
+}
+
+type UploadUrlPayload {
+  uploadUrl: String!
+  fileUrl: String!
+  expiresIn: Int!
+}
+

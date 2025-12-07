@@ -1,0 +1,169 @@
+{
+  "@@locale": "pt",
+  
+  "appName": "TherapistSocial",
+  "@appName": {
+    "description": "Nome do aplicativo"
+  },
+  
+  "welcome": "Bem-vindo ao TherapistSocial",
+  "@welcome": {
+    "description": "Mensagem de boas-vindas"
+  },
+  "login": "Entrar",
+  "signIn": "Entrar",
+  "signUp": "Cadastrar",
+  "email": "E-mail",
+  "password": "Senha",
+  "name": "Nome",
+  "surname": "Sobrenome",
+  "profession": "Profissão",
+  "city": "Cidade",
+  "phone": "Telefone (Opcional)",
+  "bio": "Biografia",
+  "specialties": "Especialidades",
+  "website": "Site",
+  
+  "profile": "Perfil",
+  "editProfile": "Editar perfil",
+  "viewProfile": "Ver perfil",
+  "myProfile": "Meu perfil",
+  "followers": "Seguidores",
+  "following": "Seguindo",
+  "posts": "Publicações",
+  
+  "discover": "Descobrir",
+  "search": "Buscar",
+  "filter": "Filtrar",
+  "noResults": "Nenhum resultado encontrado",
+  
+  "map": "Mapa",
+  "clusters": "{count, plural, =0{Nenhum terapeuta} =1{1 terapeuta} other{{count} terapeutas}}",
+  
+  "feed": "Feed",
+  "createPost": "Criar publicação",
+  "postContent": "No que você está pensando?",
+  "addImage": "Adicionar imagem",
+  "like": "Curtir",
+  "liked": "Curtido",
+  "comment": "Comentar",
+  "comments": "Comentários",
+  "save": "Salvar",
+  "saved": "Salvo",
+  "share": "Compartilhar",
+  "post": "Publicar",
+  
+  "loading": "Carregando...",
+  "error": "Erro",
+  "retry": "Tentar novamente",
+  "cancel": "Cancelar",
+  "delete": "Excluir",
+  "edit": "Editar",
+  
+  "settings": "Configurações",
+  "language": "Idioma",
+  "notifications": "Notificações",
+  "privacy": "Privacidade",
+  "blockedUsers": "Usuários bloqueados",
+  "logout": "Sair",
+  
+  "report": "Denunciar",
+  "block": "Bloquear",
+  "unblock": "Desbloquear",
+  "reportReason": "Motivo da denúncia",
+  "reportDescription": "Detalhes adicionais (opcional)",
+  
+  "verification": "Verificação",
+  "requestVerification": "Solicitar verificação",
+  "verified": "Verificado",
+  
+  "networkError": "Erro de rede. Por favor, verifique sua conexão.",
+  "serverError": "Erro do servidor. Por favor, tente novamente mais tarde.",
+  "authError": "Erro de autenticação. Por favor, faça login novamente.",
+  "notFoundError": "Conteúdo não encontrado.",
+  
+  "uploading": "Enviando...",
+  "uploadSuccess": "Upload bem-sucedido",
+  "uploadError": "Falha no upload. Por favor, tente novamente.",
+  
+  "requiredField": "{field} é obrigatório",
+  "@requiredField": {
+    "description": "Erro de campo obrigatório",
+    "placeholders": {
+      "field": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "invalidEmail": "Endereço de e-mail inválido",
+  "passwordTooShort": "A senha deve ter pelo menos 8 caracteres",
+  
+  "emptyFeed": "Ainda não há publicações. Seja o primeiro a publicar!",
+  "emptyDiscover": "Nenhum terapeuta encontrado correspondendo aos seus critérios.",
+  "emptyMap": "Nenhum terapeuta nesta área.",
+  
+  "professionArtsTherapist": "Terapeuta Artístico",
+  "professionBiomedicalScientist": "Cientista Biomédico",
+  "professionChiropodistPodiatrist": "Quiropodista / Podólogo",
+  "professionClinicalScientist": "Cientista Clínico",
+  "professionDietitian": "Nutricionista",
+  "professionHearingAidDispenser": "Dispensador de Aparelhos Auditivos",
+  "professionOccupationalTherapist": "Terapeuta Ocupacional",
+  "professionOperatingDepartmentPractitioner": "Praticante do Departamento de Operações",
+  "professionOrthoptist": "Ortoptista",
+  "professionParamedic": "Paramédico",
+  "professionPhysiotherapist": "Fisioterapeuta",
+  "professionPractitionerPsychologist": "Psicólogo Praticante",
+  "professionProsthetistOrthotist": "Protésico / Ortésico",
+  "professionRadiographerDiagnostic": "Radiologista (Diagnóstico)",
+  "professionRadiographerTherapeutic": "Radiologista (Terapêutico)",
+  "professionSocialWorkerEngland": "Assistente Social na Inglaterra",
+  "professionSpeechLanguageTherapist": "Fonoaudiólogo",
+  "professionOrthotist": "Ortésico",
+  "professionProsthetist": "Protésico",
+  "professionClinicalPsychologist": "Psicólogo Clínico",
+  "professionCounsellingPsychologist": "Psicólogo de Aconselhamento",
+  "professionEducationalPsychologist": "Psicólogo Educacional",
+  "professionForensicPsychologist": "Psicólogo Forense",
+  "professionHealthPsychologist": "Psicólogo da Saúde",
+  "professionOccupationalPsychologist": "Psicólogo Ocupacional",
+  "professionSportExercisePsychologist": "Psicólogo do Esporte e Exercício",
+  
+  "createAccount": "Criar conta",
+  "joinTherapistSocial": "Junte-se ao TherapistSocial hoje",
+  "firstName": "Nome",
+  "lastName": "Sobrenome",
+  "enterYourEmail": "Digite seu e-mail",
+  "atLeast8Characters": "Pelo menos 8 caracteres",
+  "selectYourProfession": "Selecione sua profissão",
+  "startTypingYourCity": "Comece a digitar sua cidade...",
+  "enterYourPassword": "Digite sua senha",
+  "welcomeBack": "Bem-vindo de volta",
+  "signInToContinue": "Entre para continuar sua jornada",
+  "signIn": "Entrar",
+  "forgotPassword": "Esqueceu a senha?",
+  "pleaseEnterYourEmail": "Por favor, digite seu e-mail",
+  "pleaseEnterAValidEmail": "Por favor, digite um e-mail válido",
+  "pleaseEnterYourPassword": "Por favor, digite sua senha",
+  "required": "Obrigatório",
+  "emailIsRequired": "E-mail é obrigatório",
+  "passwordIsRequired": "Senha é obrigatória",
+  "pleaseSelectACityFromTheSuggestions": "Por favor, selecione uma cidade das sugestões",
+  "or": "OU",
+  "connectionError": "Erro de conexão: Não foi possível conectar ao servidor. Por favor, verifique:",
+  "checkInternetConnection": "1. Sua conexão com a internet",
+  "checkBackendServer": "2. O servidor backend está em execução em {endpoint}",
+  "@checkBackendServer": {
+    "description": "Mensagem de verificação do servidor backend",
+    "placeholders": {
+      "endpoint": {
+        "type": "String"
+      }
+    }
+  },
+  "checkCorsSettings": "3. As configurações CORS permitem solicitações deste aplicativo",
+  "yourPhoneNumber": "Seu número de telefone",
+  "alreadyHaveAccount": "Já tem uma conta? "
+}
+

@@ -1,0 +1,169 @@
+{
+  "@@locale": "de",
+  
+  "appName": "TherapistSocial",
+  "@appName": {
+    "description": "Anwendungsname"
+  },
+  
+  "welcome": "Willkommen bei TherapistSocial",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+  "login": "Anmelden",
+  "signIn": "Anmelden",
+  "signUp": "Registrieren",
+  "email": "E-Mail",
+  "password": "Passwort",
+  "name": "Name",
+  "surname": "Nachname",
+  "profession": "Beruf",
+  "city": "Stadt",
+  "phone": "Telefon (Optional)",
+  "bio": "Biografie",
+  "specialties": "Spezialitäten",
+  "website": "Website",
+  
+  "profile": "Profil",
+  "editProfile": "Profil bearbeiten",
+  "viewProfile": "Profil anzeigen",
+  "myProfile": "Mein Profil",
+  "followers": "Follower",
+  "following": "Folge ich",
+  "posts": "Beiträge",
+  
+  "discover": "Entdecken",
+  "search": "Suchen",
+  "filter": "Filtern",
+  "noResults": "Keine Ergebnisse gefunden",
+  
+  "map": "Karte",
+  "clusters": "{count, plural, =0{Keine Therapeuten} =1{1 Therapeut} other{{count} Therapeuten}}",
+  
+  "feed": "Feed",
+  "createPost": "Beitrag erstellen",
+  "postContent": "Woran denkst du?",
+  "addImage": "Bild hinzufügen",
+  "like": "Gefällt mir",
+  "liked": "Gefällt mir",
+  "comment": "Kommentieren",
+  "comments": "Kommentare",
+  "save": "Speichern",
+  "saved": "Gespeichert",
+  "share": "Teilen",
+  "post": "Beitrag",
+  
+  "loading": "Lädt...",
+  "error": "Fehler",
+  "retry": "Wiederholen",
+  "cancel": "Abbrechen",
+  "delete": "Löschen",
+  "edit": "Bearbeiten",
+  
+  "settings": "Einstellungen",
+  "language": "Sprache",
+  "notifications": "Benachrichtigungen",
+  "privacy": "Datenschutz",
+  "blockedUsers": "Blockierte Benutzer",
+  "logout": "Abmelden",
+  
+  "report": "Melden",
+  "block": "Blockieren",
+  "unblock": "Entsperren",
+  "reportReason": "Grund für die Meldung",
+  "reportDescription": "Zusätzliche Details (optional)",
+  
+  "verification": "Verifizierung",
+  "requestVerification": "Verifizierung anfordern",
+  "verified": "Verifiziert",
+  
+  "networkError": "Netzwerkfehler. Bitte überprüfen Sie Ihre Verbindung.",
+  "serverError": "Serverfehler. Bitte versuchen Sie es später erneut.",
+  "authError": "Authentifizierungsfehler. Bitte melden Sie sich erneut an.",
+  "notFoundError": "Inhalt nicht gefunden.",
+  
+  "uploading": "Hochladen...",
+  "uploadSuccess": "Upload erfolgreich",
+  "uploadError": "Upload fehlgeschlagen. Bitte versuchen Sie es erneut.",
+  
+  "requiredField": "{field} ist erforderlich",
+  "@requiredField": {
+    "description": "Fehler bei erforderlichem Feld",
+    "placeholders": {
+      "field": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "invalidEmail": "Ungültige E-Mail-Adresse",
+  "passwordTooShort": "Das Passwort muss mindestens 8 Zeichen lang sein",
+  
+  "emptyFeed": "Noch keine Beiträge. Seien Sie der Erste, der postet!",
+  "emptyDiscover": "Keine Therapeuten gefunden, die Ihren Kriterien entsprechen.",
+  "emptyMap": "Keine Therapeuten in diesem Bereich.",
+  
+  "professionArtsTherapist": "Kunsttherapeut",
+  "professionBiomedicalScientist": "Biomedizinischer Wissenschaftler",
+  "professionChiropodistPodiatrist": "Fußpfleger / Podologe",
+  "professionClinicalScientist": "Klinischer Wissenschaftler",
+  "professionDietitian": "Ernährungsberater",
+  "professionHearingAidDispenser": "Hörgeräteakustiker",
+  "professionOccupationalTherapist": "Ergotherapeut",
+  "professionOperatingDepartmentPractitioner": "Praktiker der Operationsabteilung",
+  "professionOrthoptist": "Orthoptist",
+  "professionParamedic": "Rettungssanitäter",
+  "professionPhysiotherapist": "Physiotherapeut",
+  "professionPractitionerPsychologist": "Praktizierender Psychologe",
+  "professionProsthetistOrthotist": "Prothetiker / Orthopädietechniker",
+  "professionRadiographerDiagnostic": "Radiologe (Diagnostik)",
+  "professionRadiographerTherapeutic": "Radiologe (Therapeutisch)",
+  "professionSocialWorkerEngland": "Sozialarbeiter in England",
+  "professionSpeechLanguageTherapist": "Logopäde",
+  "professionOrthotist": "Orthopädietechniker",
+  "professionProsthetist": "Prothetiker",
+  "professionClinicalPsychologist": "Klinischer Psychologe",
+  "professionCounsellingPsychologist": "Beratungspsychologe",
+  "professionEducationalPsychologist": "Pädagogischer Psychologe",
+  "professionForensicPsychologist": "Forensischer Psychologe",
+  "professionHealthPsychologist": "Gesundheitspsychologe",
+  "professionOccupationalPsychologist": "Arbeitspsychologe",
+  "professionSportExercisePsychologist": "Sport- und Bewegungspsychologe",
+  
+  "createAccount": "Konto erstellen",
+  "joinTherapistSocial": "Treten Sie noch heute TherapistSocial bei",
+  "firstName": "Vorname",
+  "lastName": "Nachname",
+  "enterYourEmail": "Geben Sie Ihre E-Mail ein",
+  "atLeast8Characters": "Mindestens 8 Zeichen",
+  "selectYourProfession": "Wählen Sie Ihren Beruf",
+  "startTypingYourCity": "Beginnen Sie mit der Eingabe Ihrer Stadt...",
+  "enterYourPassword": "Geben Sie Ihr Passwort ein",
+  "welcomeBack": "Willkommen zurück",
+  "signInToContinue": "Melden Sie sich an, um Ihre Reise fortzusetzen",
+  "signIn": "Anmelden",
+  "forgotPassword": "Passwort vergessen?",
+  "pleaseEnterYourEmail": "Bitte geben Sie Ihre E-Mail ein",
+  "pleaseEnterAValidEmail": "Bitte geben Sie eine gültige E-Mail ein",
+  "pleaseEnterYourPassword": "Bitte geben Sie Ihr Passwort ein",
+  "required": "Erforderlich",
+  "emailIsRequired": "E-Mail ist erforderlich",
+  "passwordIsRequired": "Passwort ist erforderlich",
+  "pleaseSelectACityFromTheSuggestions": "Bitte wählen Sie eine Stadt aus den Vorschlägen",
+  "or": "ODER",
+  "connectionError": "Verbindungsfehler: Verbindung zum Server nicht möglich. Bitte überprüfen Sie:",
+  "checkInternetConnection": "1. Ihre Internetverbindung",
+  "checkBackendServer": "2. Der Backend-Server läuft auf {endpoint}",
+  "@checkBackendServer": {
+    "description": "Backend-Server-Prüfmeldung",
+    "placeholders": {
+      "endpoint": {
+        "type": "String"
+      }
+    }
+  },
+  "checkCorsSettings": "3. Die CORS-Einstellungen erlauben Anfragen von dieser Anwendung",
+  "yourPhoneNumber": "Ihre Telefonnummer",
+  "alreadyHaveAccount": "Haben Sie bereits ein Konto? "
+}
+

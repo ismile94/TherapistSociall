@@ -1,0 +1,18 @@
+type Cluster {
+  id: ID!
+  center: GeoPoint!
+  count: Int!
+  bounds: GeoBounds!
+  profiles: [Profile!]!
+}
+
+type GeoBounds {
+  northEast: GeoPoint!
+  southWest: GeoPoint!
+}
+
+input GeoBoundsInput {
+  northEast: GeoPoint!
+  southWest: GeoPoint!
+}
+

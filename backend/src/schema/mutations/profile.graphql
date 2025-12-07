@@ -1,0 +1,21 @@
+input UpdateProfileInput {
+  name: String
+  surname: String
+  profession: String
+  city: String
+  location: GeoPoint
+  profilePhoto: String
+  specialties: [String!]
+  bio: String
+  phone: String
+  email: String
+  website: String
+  isPublic: Boolean
+}
+
+extend type Mutation {
+  updateProfile(input: UpdateProfileInput!): Profile!
+  followProfile(profileId: ID!): Boolean!
+  unfollowProfile(profileId: ID!): Boolean!
+}
+

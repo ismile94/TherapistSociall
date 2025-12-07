@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+.packages
+.pub-cache/
+.pub/
+build/
+
+# Flutter/Dart
+*.dart.js
+*.dart.js_
+*.info.json
+*.js
+*.js_
+*.js.deps
+*.js.map
+
+# Build files
+dist/
+build/
+*.apk
+*.aab
+*.ipa
+*.app
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.test_coverage/
+
+# Temporary files
+*.tmp
+*.temp
+
+# OS
+Thumbs.db
+
+# Android - Secret tokens (do not commit sensitive keys)
+# Note: gradle.properties contains Mapbox SDK secret token
+# If sharing code, use environment variables or local.properties instead
+# frontend/android/gradle.properties
+

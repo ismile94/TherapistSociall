@@ -1,0 +1,11 @@
+type Comment {
+  id: ID!
+  postId: ID!
+  post: Post!
+  authorId: ID!
+  author: Profile!
+  content: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+

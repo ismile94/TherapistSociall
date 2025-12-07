@@ -1,0 +1,9 @@
+extend type Query {
+  mapClusters(
+    bounds: GeoBoundsInput!
+    zoom: Float!
+    profession: String
+    specialties: [String!]
+  ): [Cluster!]!
+}
+

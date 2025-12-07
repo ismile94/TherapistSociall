@@ -1,0 +1,19 @@
+extend type Query {
+  discover(
+    profession: String
+    city: String
+    specialties: [String!]
+    cursor: Cursor
+    limit: Int
+  ): ProfileConnection!
+  
+  searchProfilesByLocation(
+    location: GeoPoint!
+    radius: Float!
+    profession: String
+    specialties: [String!]
+    cursor: Cursor
+    limit: Int
+  ): ProfileConnection!
+}
+

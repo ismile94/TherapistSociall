@@ -1,0 +1,13 @@
+{
+  "[arb]": {
+    "editor.defaultFormatter": null
+  },
+  "files.associations": {
+    "*.arb": "json"
+  },
+  "dart.analysis.exclude": [
+    "**/lib/core/localization/l10n/*.arb"
+  ],
+  "problems.showCurrentInStatus": true,
+  "problems.decorations.enabled": true
+}

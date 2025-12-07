@@ -1,0 +1,11 @@
+# Root GraphQL Schema
+# This file defines the base Query and Mutation types
+
+type Query {
+  _empty: String
+}
+
+type Mutation {
+  _empty: String
+}
+

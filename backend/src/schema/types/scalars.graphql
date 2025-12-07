@@ -1,0 +1,5 @@
+scalar DateTime
+scalar GeoPoint
+scalar JSON
+scalar Cursor
+

@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/api/graphql.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/graphql",
+      "dest": "/backend/api/graphql.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/web/$1"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/graphql",
+      "destination": "/api/graphql"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/graphql",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ]
+}

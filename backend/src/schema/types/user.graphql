@@ -1,0 +1,16 @@
+type User {
+  id: ID!
+  email: String!
+  role: Role!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  profile: Profile
+}
+
+enum Role {
+  USER
+  VERIFIED_THERAPIST
+  MODERATOR
+  ADMIN
+}
+

@@ -1,0 +1,13 @@
+extend type Query {
+  feed(
+    cursor: Cursor
+    limit: Int
+    authorId: ID
+  ): PostConnection!
+  
+  savedPosts(
+    cursor: Cursor
+    limit: Int
+  ): PostConnection!
+}
+

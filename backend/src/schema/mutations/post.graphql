@@ -1,0 +1,22 @@
+input CreatePostInput {
+  content: String!
+  imageUrl: String
+}
+
+input CreateCommentInput {
+  postId: ID!
+  content: String!
+}
+
+extend type Mutation {
+  createPost(input: CreatePostInput!): Post!
+  updatePost(id: ID!, input: CreatePostInput!): Post!
+  deletePost(id: ID!): Boolean!
+  likePost(postId: ID!): Post!
+  unlikePost(postId: ID!): Post!
+  savePost(postId: ID!): Boolean!
+  unsavePost(postId: ID!): Boolean!
+  createComment(input: CreateCommentInput!): Comment!
+  deleteComment(id: ID!): Boolean!
+}
+

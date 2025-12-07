@@ -1,0 +1,21 @@
+enum ReportReason {
+  SPAM
+  HARASSMENT
+  INAPPROPRIATE_CONTENT
+  FALSE_INFORMATION
+  OTHER
+}
+
+input ReportContentInput {
+  contentId: ID!
+  contentType: String!
+  reason: ReportReason!
+  description: String
+}
+
+extend type Mutation {
+  blockUser(userId: ID!): Boolean!
+  unblockUser(userId: ID!): Boolean!
+  reportContent(input: ReportContentInput!): Boolean!
+}
+
