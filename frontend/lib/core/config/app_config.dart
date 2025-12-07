@@ -39,7 +39,7 @@ class AppConfig {
     
     // Production build'de (release mode) Vercel URL'ini kullan
     if (isReleaseMode || isProduction) {
-      final endpoint = '$vercelBackendUrl/api/graphql';
+      const endpoint = '$vercelBackendUrl/api/graphql';
       debugPrint('🔵 [APP_CONFIG] Production mode - using Vercel URL: $endpoint');
       return endpoint;
     }
@@ -49,12 +49,12 @@ class AppConfig {
       // Emulator için 10.0.2.2, fiziksel cihaz için local IP
       // Emulator kontrolü için Flutter'ın kendi mekanizmasını kullanabiliriz
       // Şimdilik fiziksel cihaz için local IP kullanıyoruz
-      final endpoint = 'http://192.168.1.219:4000/graphql';
+      const endpoint = 'http://192.168.1.219:4000/graphql';
       debugPrint('🔵 [APP_CONFIG] Android development - using local IP: $endpoint');
       return endpoint;
     }
     // iOS simulator veya desktop için localhost
-    final endpoint = 'http://localhost:4000/graphql';
+    const endpoint = 'http://localhost:4000/graphql';
     debugPrint('🔵 [APP_CONFIG] iOS/Desktop development - using localhost: $endpoint');
     return endpoint;
   }
