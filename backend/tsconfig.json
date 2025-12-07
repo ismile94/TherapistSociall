@@ -19,7 +19,7 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "config/**/*"],
+  "include": ["src/**/*", "config/**/*", "api/**/*", "types/**/*"],
   "exclude": ["node_modules", "dist"]
 }
 
