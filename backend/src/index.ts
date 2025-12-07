@@ -73,21 +73,21 @@ async function startServer() {
       {
         requestDidStart() {
           return {
-            didResolveOperation(requestContext) {
+            didResolveOperation(requestContext: any) {
               console.log('🔵 [APOLLO] Operation:', requestContext.operationName || 'unnamed');
               console.log('🔵 [APOLLO] Variables:', JSON.stringify(requestContext.request.variables, null, 2));
             },
-            didEncounterErrors(requestContext) {
+            didEncounterErrors(requestContext: any) {
               console.error('🔴 [APOLLO] Request errors:', requestContext.errors);
             },
-            willSendResponse(requestContext) {
-              if (requestContext.response.data) {
+            willSendResponse(requestContext: any) {
+              if (requestContext.response?.data) {
                 console.log('🟢 [APOLLO] Response data keys:', Object.keys(requestContext.response.data));
               }
             },
           };
         },
-      },
+      } as any,
     ],
   });
   
