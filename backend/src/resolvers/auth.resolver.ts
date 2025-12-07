@@ -14,10 +14,33 @@ export const authResolvers = {
   },
   Mutation: {
     signUp: async (parent: any, { input }: any, context: any) => {
+      console.log('🔵 [AUTH_RESOLVER] SignUp mutation called');
+      console.log('🔵 [AUTH_RESOLVER] Input received:', {
+        email: input.email,
+        name: input.name,
+        surname: input.surname,
+        profession: input.profession,
+        city: input.city,
+        hasPassword: !!input.password,
+        hasPhone: !!input.phone,
+      });
+      
       try {
+        console.log('🔵 [AUTH_RESOLVER] Calling AuthService.signUp...');
         const result = await AuthService.signUp(input);
+        console.log('🟢 [AUTH_RESOLVER] SignUp successful');
+        console.log('🟢 [AUTH_RESOLVER] Result:', {
+          userId: result.user?.id,
+          email: result.user?.email,
+          hasAccessToken: !!result.accessToken,
+          hasRefreshToken: !!result.refreshToken,
+          expiresIn: result.expiresIn,
+        });
         return result;
       } catch (error: any) {
+        console.error('🔴 [AUTH_RESOLVER] SignUp error:', error);
+        console.error('🔴 [AUTH_RESOLVER] Error message:', error.message);
+        console.error('🔴 [AUTH_RESOLVER] Error stack:', error.stack);
         throw new Error(error.message || 'Sign up failed');
       }
     },

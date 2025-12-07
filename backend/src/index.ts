@@ -53,12 +53,42 @@ async function startServer() {
     context: async ({ req }) => {
       // Extract user from JWT token
       const token = req.headers.authorization?.replace('Bearer ', '');
+      console.log('🔵 [APOLLO] Context created - hasToken:', !!token);
       // TODO: Verify token and get user
       return {
         user: null, // Will be populated from token
       };
     },
     introspection: config.nodeEnv === 'development',
+    formatError: (error) => {
+      console.error('🔴 [APOLLO] GraphQL Error:', error.message);
+      console.error('🔴 [APOLLO] Error path:', error.path);
+      console.error('🔴 [APOLLO] Error extensions:', error.extensions);
+      if (error.originalError) {
+        console.error('🔴 [APOLLO] Original error:', error.originalError);
+      }
+      return error;
+    },
+    plugins: [
+      {
+        requestDidStart() {
+          return {
+            didResolveOperation(requestContext) {
+              console.log('🔵 [APOLLO] Operation:', requestContext.operationName || 'unnamed');
+              console.log('🔵 [APOLLO] Variables:', JSON.stringify(requestContext.request.variables, null, 2));
+            },
+            didEncounterErrors(requestContext) {
+              console.error('🔴 [APOLLO] Request errors:', requestContext.errors);
+            },
+            willSendResponse(requestContext) {
+              if (requestContext.response.data) {
+                console.log('🟢 [APOLLO] Response data keys:', Object.keys(requestContext.response.data));
+              }
+            },
+          };
+        },
+      },
+    ],
   });
   
   await server.start();

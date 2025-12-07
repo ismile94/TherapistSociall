@@ -44,13 +44,35 @@ class TherapistSocialApp extends ConsumerWidget {
 // Router configuration
 final GoRouter _router = GoRouter(
   initialLocation: '/splash',
+  debugLogDiagnostics: true, // Enable router debug logs
   routes: [
-    GoRoute(path: '/splash', builder: (context, state) => const SplashScreen()),
-    GoRoute(path: '/login', builder: (context, state) => const LoginScreen()),
-    GoRoute(path: '/signup', builder: (context, state) => const SignUpScreen()),
+    GoRoute(
+      path: '/splash',
+      builder: (context, state) {
+        debugPrint('🔵 [ROUTER] Navigating to /splash');
+        return const SplashScreen();
+      },
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) {
+        debugPrint('🔵 [ROUTER] Navigating to /login');
+        return const LoginScreen();
+      },
+    ),
+    GoRoute(
+      path: '/signup',
+      builder: (context, state) {
+        debugPrint('🔵 [ROUTER] Navigating to /signup');
+        return const SignUpScreen();
+      },
+    ),
     GoRoute(
       path: '/',
-      builder: (context, state) => const MainNavigation(),
+      builder: (context, state) {
+        debugPrint('🔵 [ROUTER] Navigating to / (MainNavigation)');
+        return const MainNavigation();
+      },
     ),
   ],
 );

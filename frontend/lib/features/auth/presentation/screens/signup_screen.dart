@@ -61,6 +61,8 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
   }
 
   Future<void> _handleSignUp() async {
+    debugPrint('🔵 [SIGNUP] Starting sign up process...');
+    
     // Validate profession field
     if (_selectedProfession == null || _selectedProfession!.isEmpty) {
       _professionController.text = '';
@@ -69,6 +71,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
     }
 
     if (!_formKey.currentState!.validate()) {
+      debugPrint('🔴 [SIGNUP] Form validation failed');
       return;
     }
 
@@ -78,6 +81,7 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
 
     try {
       final client = ref.read(graphqlClientProvider);
+      debugPrint('🔵 [SIGNUP] GraphQL client obtained');
 
       const signUpMutation = '''
         mutation SignUp(\$input: SignUpInput!) {
@@ -94,24 +98,31 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         }
       ''';
 
+      final inputData = {
+        'email': _emailController.text.trim(),
+        'password': _passwordController.text,
+        'name': _nameController.text.trim(),
+        'surname': _surnameController.text.trim(),
+        'profession': _professionController.text.trim(),
+        'city': _cityController.text.trim(),
+        'phone': _phoneController.text.trim().isNotEmpty
+            ? _phoneController.text.trim()
+            : null,
+      };
+      
+      debugPrint('🔵 [SIGNUP] Mutation variables prepared: ${inputData.toString().replaceAll(inputData['password']!, '***')}');
+      debugPrint('🔵 [SIGNUP] Calling GraphQL mutation...');
+
       final result = await client.mutate(
         MutationOptions(
           document: gql(signUpMutation),
           variables: {
-            'input': {
-              'email': _emailController.text.trim(),
-              'password': _passwordController.text,
-              'name': _nameController.text.trim(),
-              'surname': _surnameController.text.trim(),
-              'profession': _professionController.text.trim(),
-              'city': _cityController.text.trim(),
-              'phone': _phoneController.text.trim().isNotEmpty
-                  ? _phoneController.text.trim()
-                  : null,
-            },
+            'input': inputData,
           },
         ),
       );
+      
+      debugPrint('🔵 [SIGNUP] Mutation completed. hasException: ${result.hasException}');
 
       if (result.hasException) {
         String errorMessage = 'Sign up failed';
@@ -175,29 +186,52 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         throw Exception(errorMessage);
       }
 
+      debugPrint('🔵 [SIGNUP] Checking result data...');
+      debugPrint('🔵 [SIGNUP] result.data: ${result.data}');
+      
       if (result.data != null && result.data!['signUp'] != null) {
+        debugPrint('🟢 [SIGNUP] Sign up successful! Processing response...');
         final authData = result.data!['signUp'];
         final accessToken = authData['accessToken'] as String?;
         final refreshToken = authData['refreshToken'] as String?;
         final user = authData['user'] as Map<String, dynamic>?;
         final userId = user?['id'] as String?;
 
+        debugPrint('🔵 [SIGNUP] Extracted data - userId: $userId, hasAccessToken: ${accessToken != null}, hasRefreshToken: ${refreshToken != null}');
+
         // Store tokens in secure storage
+        debugPrint('🔵 [SIGNUP] Storing tokens in secure storage...');
         if (accessToken != null) {
           await SecureStorageService.saveAccessToken(accessToken);
+          debugPrint('🟢 [SIGNUP] Access token saved');
+        } else {
+          debugPrint('🔴 [SIGNUP] WARNING: Access token is null!');
         }
         if (refreshToken != null) {
           await SecureStorageService.saveRefreshToken(refreshToken);
+          debugPrint('🟢 [SIGNUP] Refresh token saved');
+        } else {
+          debugPrint('🔴 [SIGNUP] WARNING: Refresh token is null!');
         }
         if (userId != null) {
           await SecureStorageService.saveUserId(userId);
+          debugPrint('🟢 [SIGNUP] User ID saved: $userId');
+        } else {
+          debugPrint('🔴 [SIGNUP] WARNING: User ID is null!');
         }
 
         // Navigate to home screen
+        debugPrint('🔵 [SIGNUP] Navigating to home screen...');
         if (mounted) {
+          debugPrint('🟢 [SIGNUP] Widget is mounted, calling context.go("/")');
           context.go('/');
+          debugPrint('🟢 [SIGNUP] Navigation called');
+        } else {
+          debugPrint('🔴 [SIGNUP] ERROR: Widget not mounted, cannot navigate!');
         }
       } else {
+        debugPrint('🔴 [SIGNUP] ERROR: No data received from mutation');
+        debugPrint('🔴 [SIGNUP] result.data: ${result.data}');
         if (mounted) {
           final l10n = AppLocalizations.of(context);
           throw Exception(l10n != null
@@ -207,7 +241,9 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
           throw Exception('Sign up failed: No data received');
         }
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
+      debugPrint('🔴 [SIGNUP] Exception caught: $e');
+      debugPrint('🔴 [SIGNUP] Stack trace: $stackTrace');
       if (mounted) {
         final l10n = AppLocalizations.of(context);
         ScaffoldMessenger.of(context).showSnackBar(
@@ -220,10 +256,14 @@ class _SignUpScreenState extends ConsumerState<SignUpScreen> {
         );
       }
     } finally {
+      debugPrint('🔵 [SIGNUP] Finally block - setting isLoading to false');
       if (mounted) {
         setState(() {
           _isLoading = false;
         });
+        debugPrint('🟢 [SIGNUP] isLoading set to false');
+      } else {
+        debugPrint('🔴 [SIGNUP] Widget not mounted in finally block');
       }
     }
   }
