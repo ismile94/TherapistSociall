@@ -4,22 +4,24 @@
     {
       "src": "backend/api/graphql.ts",
       "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/graphql",
-      "dest": "/backend/api/graphql.ts"
     },
     {
-      "src": "/(.*)",
-      "dest": "/frontend/web/$1"
+      "src": "frontend/web/**",
+      "use": "@vercel/static"
     }
   ],
   "rewrites": [
     {
+      "source": "/api/graphql",
+      "destination": "/backend/api/graphql.ts"
+    },
+    {
       "source": "/graphql",
-      "destination": "/api/graphql"
+      "destination": "/backend/api/graphql.ts"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/frontend/web/$1"
     }
   ],
   "headers": [
