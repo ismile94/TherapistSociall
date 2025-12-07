@@ -1,14 +1,11 @@
-// Storage resolvers placeholder
-export const storageResolvers = {
-  Mutation: {
-    requestUploadUrl: async (parent: any, { filename, contentType, fileSize }: any, context: any) => {
-      // TODO: Generate pre-signed URL for Cloudflare R2
-      throw new Error('Not implemented');
-    },
-    confirmUpload: async (parent: any, { fileUrl, metadata }: any, context: any) => {
-      // TODO: Confirm upload and process image
-      return true;
+// Map resolvers placeholder
+export const mapResolvers = {
+  Query: {
+    mapClusters: async (parent: any, { bounds, zoom, profession, specialties }: any, context: any) => {
+      // TODO: Implement server-side clustering with PostGIS
+      // This will use ST_SnapToGrid and ST_Within for clustering
+      return [];
     },
   },
+  Mutation: {}, // Bu satırı ekleyin
 };
-

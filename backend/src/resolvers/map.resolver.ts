@@ -1,11 +1,26 @@
-// Map resolvers placeholder
-export const mapResolvers = {
+// Discover resolvers placeholder
+export const discoverResolvers = {
   Query: {
-    mapClusters: async (parent: any, { bounds, zoom, profession, specialties }: any, context: any) => {
-      // TODO: Implement server-side clustering with PostGIS
-      // This will use ST_SnapToGrid and ST_Within for clustering
-      return [];
+    discover: async (parent: any, { profession, city, specialties, cursor, limit }: any, context: any) => {
+      // TODO: Search profiles with filters
+      return {
+        edges: [],
+        pageInfo: {
+          hasNextPage: false,
+          hasPreviousPage: false,
+        },
+      };
+    },
+    searchProfilesByLocation: async (parent: any, { location, radius, profession, specialties, cursor, limit }: any, context: any) => {
+      // TODO: Search profiles by location using PostGIS
+      return {
+        edges: [],
+        pageInfo: {
+          hasNextPage: false,
+          hasPreviousPage: false,
+        },
+      };
     },
   },
+  Mutation: {}, // Bu satırı ekleyin
 };
-
